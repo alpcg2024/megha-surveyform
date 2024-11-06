@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OKGS</title>
+    <style>
+        body {
+            font-family: Comic Sans, cursive;
+            background-color: #0ab8c9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+        p {
+            text-align: center;
+            font-size: 18px;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #0ab8c9;
+            font-size: 18px;
+        }
+        label {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        .submit-btn {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>WELCOME</h1>
+    <p>Omar Kinder Garten School & Omar Garten Academy</p>
+    <p>Fill up the form</p>
+
+    <form onsubmit="return validateForm()">
+        <h2>Write your name</h2>
+        <input type="text" id="name" name="name" required>
+        
+        <h2>Identity</h2>
+        <input type="radio" id="student" name="identity" value="student"> <label for="student">Student</label>
+        <input type="radio" id="teacher" name="identity" value="teacher"> <label for="teacher">Teacher</label>
+        
+        <h2>Gender</h2>
+        <input type="radio" id="male" name="gender" value="male"> <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female"> <label for="female">Female</label>
+        
+        <h2>Class</h2>
+        <input type="radio" id="6" name="class" value="6"> <label for="6">6</label>
+        <input type="radio" id="7" name="class" value="7"> <label for="7">7</label>
+        <input type="radio" id="8" name="class" value="8"> <label for="8">8</label>
+        <input type="radio" id="9" name="class" value="9"> <label for="9">9</label>
+        <input type="radio" id="10" name="class" value="10"> <label for="10">10</label>
+        
+        <h2>Roll</h2>
+        <input type="text" id="roll" name="roll" required>
+        
+        <h2>Date of Birth</h2>
+        <input type="text" id="dateOfBirth" name="dateOfBirth" placeholder="DD/MM/YYYY" required>
+        
+        <h2>Email</h2>
+        <input type="email" id="email" name="email" required>
+        
+        <h2>Password</h2>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const roll = document.getElementById("roll").value;
+            const dob = document.getElementById("dateOfBirth").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const identity = document.querySelector('input[name="identity"]:checked');
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const classOption = document.querySelector('input[name="class"]:checked');
+
+            if (!name || !roll || !dob || !email || !password || !identity || !gender || !classOption) {
+                alert("Please fill out all fields.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
